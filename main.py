@@ -4,9 +4,12 @@ from last_years_taxdata import coin_dict
 
 
 def main():
+
     for key in coin_dict:
         coin_dict[key]['basisbasis'] = coin_dict[key]['basis'] * coin_dict[key]['amount']
 
+    # The CSV should be in format "_ COINNAME COINAMOUNT SEKPAID OPERATION"
+    # Valid operations are Sale, Loanrepay, Purachse, Stakingreward, Loan,
     with open('CC - 2022.tsv',encoding="utf8") as file:
         lines = file.read().splitlines()
     lines.pop(0)
